@@ -13,7 +13,7 @@ export default function TaskTable({ todos , deleteTask , toogleTask }) {
 
             <tbody>
                 {todos.map((index , todo) => (
-                    <OneTask index={index} task={todo} deleteTask={deleteTask} toogleTask={toogleTask} />
+                    <OneTask key={index} index={index} task={todo} deleteTask={deleteTask} toogleTask={toogleTask} />
                 ))}
             </tbody>
         </table>
