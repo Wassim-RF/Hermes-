@@ -12,8 +12,8 @@ export default function TaskTable({ todos , deleteTask , toogleTask }) {
             </thead>
 
             <tbody>
-                {todos.map((index , todo) => (
-                    <OneTask key={index} index={index} task={todo} deleteTask={deleteTask} toogleTask={toogleTask} />
+                {todos.map((todo , index) => (
+                    <OneTask key={todo.id} index={index} task={todo} deleteTask={deleteTask} toogleTask={toogleTask} />
                 ))}
             </tbody>
         </table>
