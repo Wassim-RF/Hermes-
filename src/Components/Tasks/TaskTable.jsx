@@ -1,6 +1,7 @@
+import Filter from "../Filter/Filter";
 import OneTask from "./OneTask";
 
-export default function TaskTable({ todos, deleteTask, toogleTask }) {
+export default function TaskTable({ todos, deleteTask, toogleTask , filter , setFilter }) {
     return (
         <div className="w-full space-y-4">
             <div className="flex gap-4 px-2 p-2">
@@ -17,6 +18,7 @@ export default function TaskTable({ todos, deleteTask, toogleTask }) {
                         {todos.filter(todo => todo.completed).length}
                     </span>
                 </div>
+                <Filter setFilter={setFilter} />
             </div>
 
             <div className="w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -37,14 +39,13 @@ export default function TaskTable({ todos, deleteTask, toogleTask }) {
 
                     <tbody className="divide-y divide-slate-50">
                         {todos.length > 0 ? (
-                            todos.map((todo, index) => (
-                                <OneTask 
-                                    key={todo.id} 
-                                    index={index} 
-                                    task={todo} 
-                                    deleteTask={deleteTask} 
-                                    toogleTask={toogleTask} 
-                                />
+                            (filter === "All"
+                                ? todos
+                                : filter === "Complete"
+                                ? todos.filter((todo) => todo.completed)
+                                : todos.filter((todo) => !todo.completed)
+                            ).map((todo, index) => (
+                            <OneTask key={todo.id} index={index} task={todo} deleteTask={deleteTask} toogleTask={toogleTask} />
                             ))
                         ) : (
                             <tr>
@@ -53,7 +54,7 @@ export default function TaskTable({ todos, deleteTask, toogleTask }) {
                                 </td>
                             </tr>
                         )}
-                    </tbody>
+                        </tbody>
                 </table>
             </div>
         </div>
