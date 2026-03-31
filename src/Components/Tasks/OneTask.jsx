@@ -1,13 +1,13 @@
 import DeleteTask from "../Button/DeleteTask";
 import ToogleTask from "../Button/ToggleTask";
 
-export default function OneTask({index , task , deleteTask}) {
+export default function OneTask({index , task , deleteTask , toogleTask}) {
     return <tr>
         <td>{index}</td>
         <td className="{{ task.completed ?  'line-through' : ''}}">{task.text}</td>
         <td>
             <DeleteTask deleteTask={deleteTask} id={task.id} />
-            <ToogleTask />
+            <ToogleTask isCompleted={task.completed} toogleTask={toogleTask} id={task.id}/>
         </td>
     </tr>
 }
