@@ -1,4 +1,4 @@
-export default function AddTask({isCompleted}) {
+export default function ToogleTask({isCompleted}) {
     return <button>
         {
             isCompleted ? "Incomplete" : "Complete"
