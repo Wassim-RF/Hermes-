@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function useTodo() {
+export function useTodo() {
     const [todos , setTodos] = useState([]);
 
     useEffect(() => {
@@ -41,5 +41,5 @@ export default function useTodo() {
         );
     }
 
-    return {todos , addTodo , deleteTodo , toogleTodo}
+    return [todos , addTodo , deleteTodo , toogleTodo]
 }
