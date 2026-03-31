@@ -1,15 +1,10 @@
 import { useEffect, useState } from "react";
 
 export function useTodo() {
-    const [todos , setTodos] = useState([]);
-
-    useEffect(() => {
+    const [todos , setTodos] = useState(() => {
         const storedTodos = localStorage.getItem("todos");
-
-        if (storedTodos) {
-            setTimeout(() => setTodos(JSON.parse(storedTodos)), 0);
-        }
-    } , []);
+        return storedTodos ? JSON.parse(storedTodos) : [];
+    });
 
     useEffect(() => {
         localStorage.setItem("todos" , JSON.stringify(todos));
