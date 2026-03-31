@@ -7,9 +7,15 @@ function App() {
     const [todos , addTodo , deleteTodo , toogleTodo] = useTodo();
     const [text , setText] = useState("");
 
+    function handleSubmitAdd(e) {
+        e.preventDefault();
+        addTodo(text);
+        setText("");
+    }
+
     return (
         <div>
-            <AddTaskForm addTask={addTodo} text={text} setText={setText} />
+            <AddTaskForm addTask={handleSubmitAdd} text={text} setText={setText} />
             <TaskTable todos={todos} deleteTask={deleteTodo} toogleTask={toogleTodo} />
         </div>
     )
