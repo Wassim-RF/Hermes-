@@ -1,7 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function useTodo() {
     const [todos , setTodos] = useState([]);
+
+    useEffect(() => {
+        const storedTodos = localStorage.getItem("todos");
+
+        if (storedTodos) {
+            setTimeout(() => setTodos(JSON.parse(storedTodos)), 0);
+        }
+    } , []);
+
+    useEffect(() => {
+        localStorage.setItem("todos" , JSON.stringify(todos));
+    } , [todos]);
 
     function addTodo(text) {
         const newTodo = {
