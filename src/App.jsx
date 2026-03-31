@@ -3,6 +3,7 @@ import { useTodo } from "./Hooks/useTodo";
 import AddTaskForm from "./Components/Tasks/AddTaskForm";
 import TaskTable from "./Components/Tasks/TaskTable";
 import Header from "./Components/Layouts/Header";
+import Footer from "./Components/Layouts/Footer";
 
 function App() {
     const [todos, addTodo, deleteTodo, toogleTodo] = useTodo();
@@ -19,13 +20,17 @@ function App() {
     }
 
     return (
-        <div className="min-h-screen bg-linear-to-br from-slate-50 to-indigo-50/30 py-12 px-4 sm:px-6">
-            <div className="max-w-4xl mx-auto space-y-10">
+        <div className="min-h-screen bg-slate-50/50 flex flex-col">
+            {/* 1. Header (Santure) - Fixed l-foq */}
+            <Header />
 
-                <Header />
-
-                <main>
-                    <section className="flex justify-center">
+            {/* 2. Main Content Container */}
+            {/* pt-32 bash n-be3do 3la l-header li fixed, w pb-12 bash n-khlliw l-hawa l-teht */}
+            <main className="grow pt-32 pb-12 px-4 sm:px-6">
+                <div className="max-w-4xl mx-auto space-y-12">
+                    
+                    {/* Form Section: Add Task */}
+                    <section className="flex justify-center animate-in fade-in slide-in-from-top-4 duration-500">
                         <AddTaskForm 
                             addTask={handleSubmitAdd} 
                             text={text} 
@@ -33,21 +38,22 @@ function App() {
                         />
                     </section>
 
-                    <main className="animate-in fade-in slide-in-from-bottom-4 duration-700">
-                        <TaskTable 
-                            todos={todos} 
-                            deleteTask={deleteTodo} 
-                            toogleTask={toogleTodo} 
-                        />
-                    </main>
-                </main>
+                    {/* Table Section: Task List */}
+                    <section className="animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150">
+                        <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-100">
+                            <TaskTable 
+                                todos={todos} 
+                                deleteTask={deleteTodo} 
+                                toogleTask={toogleTodo} 
+                            />
+                        </div>
+                    </section>
 
-                {/* <footer className="pt-6 border-t border-slate-200 flex justify-between items-center text-sm text-slate-400">
-                    <p>{todos.length} Total Tasks</p>
-                    <p>Built with React & Tailwind</p>
-                </footer> */}
+                </div>
+            </main>
 
-            </div>
+            {/* 3. Footer Section */}
+            <Footer todos={todos} />
         </div>
     );
 }
