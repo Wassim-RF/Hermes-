@@ -4,21 +4,25 @@ import OneTask from "./OneTask";
 export default function TaskTable({ todos, deleteTask, toogleTask , filter , setFilter }) {
     return (
         <div className="w-full space-y-4">
-            <div className="flex gap-4 px-2 p-2">
-                <div className="flex items-center gap-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Total</span>
-                    <span className="bg-white px-2 py-0.5 rounded-full text-xs font-black text-slate-700 shadow-sm">
-                        {todos.length}
-                    </span>
-                </div>
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-2 py-4 bg-white/40 rounded-2xl">
+                <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200/60 shadow-sm">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">Total</span>
+                        <span className="bg-white px-2 py-0.5 rounded-full text-xs font-black text-slate-700 shadow-sm">
+                            {todos.length}
+                        </span>
+                    </div>
 
-                <div className="flex items-center gap-2 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-100">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600">Done</span>
-                    <span className="bg-white px-2 py-0.5 rounded-full text-xs font-black text-emerald-700 shadow-sm">
-                        {todos.filter(todo => todo.completed).length}
-                    </span>
+                    <div className="flex items-center gap-2 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-100 shadow-sm">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-emerald-600">Done</span>
+                        <span className="bg-white px-2 py-0.5 rounded-full text-xs font-black text-emerald-700 shadow-sm">
+                            {todos.filter(todo => todo.completed).length}
+                        </span>
+                    </div>
                 </div>
-                <Filter setFilter={setFilter} />
+                <div className="shrink-0">
+                    <Filter setFilter={setFilter} filter={filter} />
+                </div>
             </div>
 
             <div className="w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
