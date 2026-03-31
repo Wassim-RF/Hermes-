@@ -40,4 +40,6 @@ export default function useTodo() {
             )
         );
     }
+
+    return {todos , addTodo , deleteTodo , toogleTodo}
 }
