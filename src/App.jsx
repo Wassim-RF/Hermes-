@@ -17,6 +17,10 @@ function App() {
             alert("L'input est vide.");
             return
         }
+        if (priority.trim() === "") {
+            alert("Choisir une priorite");
+            return
+        }
         addTodo(text , priority);
         setText("");
     }

@@ -24,6 +24,7 @@ export default function AddTaskForm({ addTask, text, setText , setPriority , pri
                     className="appearance-none bg-slate-50/50 hover:bg-slate-100 px-3 py-2 pr-8 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-500 cursor-pointer outline-none transition-all border border-transparent hover:border-slate-200"
                     value={priority} onChange={(e) => (setPriority(e.currentTarget.value))}
                 >
+                    <option value="" selected disabled>Priority</option>
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
                     <option value="high">High</option>
