@@ -38,6 +38,9 @@ export default function TaskTable({ todos, deleteTask, toogleTask , filter , set
                             <th className="py-4 px-4 text-xs font-semibold uppercase tracking-wider text-slate-500 text-center">
                                 Priority
                             </th>
+                            <th className="py-4 px-4 text-xs font-semibold uppercase tracking-wider text-slate-500 text-center">
+                                Deadline
+                            </th>
                             <th className="py-4 px-4 text-xs font-semibold uppercase tracking-wider text-slate-500 text-right">
                                 Actions
                             </th>
@@ -62,7 +65,7 @@ export default function TaskTable({ todos, deleteTask, toogleTask , filter , set
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="4" className="py-12 text-center text-slate-400 italic">
+                                <td colSpan="5" className="py-12 text-center text-slate-400 italic">
                                     No tasks found. Start by adding one above!
                                 </td>
                             </tr>

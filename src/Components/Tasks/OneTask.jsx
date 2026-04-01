@@ -33,6 +33,17 @@ export default function OneTask({ index, task, deleteTask, toogleTask }) {
         </div>
       </td>
 
+      <td className="py-4 px-3">
+        <div className="flex items-center justify-center gap-2 text-slate-400 font-bold uppercase tracking-tighter text-[10px]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-slate-300">
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <span>
+            {task.deadline ? task.deadline : "No Date"}
+          </span>
+        </div>
+      </td>
+
       <td className="py-4 px-3 text-right">
         <div className="flex items-center justify-end gap-3">
           <ToogleTask isCompleted={task.completed} toogleTask={toogleTask} id={task.id} />
