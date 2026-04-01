@@ -35,6 +35,9 @@ export default function TaskTable({ todos, deleteTask, toogleTask , filter , set
                             <th className="py-4 px-4 text-xs font-semibold uppercase tracking-wider text-slate-500">
                                 Task Description
                             </th>
+                            <th className="py-4 px-4 text-xs font-semibold uppercase tracking-wider text-slate-500 text-center">
+                                Priority
+                            </th>
                             <th className="py-4 px-4 text-xs font-semibold uppercase tracking-wider text-slate-500 text-right">
                                 Actions
                             </th>
@@ -49,16 +52,22 @@ export default function TaskTable({ todos, deleteTask, toogleTask , filter , set
                                 ? todos.filter((todo) => todo.completed)
                                 : todos.filter((todo) => !todo.completed)
                             ).map((todo, index) => (
-                            <OneTask key={todo.id} index={index} task={todo} deleteTask={deleteTask} toogleTask={toogleTask} />
+                                <OneTask 
+                                    key={todo.id} 
+                                    index={index} 
+                                    task={todo} 
+                                    deleteTask={deleteTask} 
+                                    toogleTask={toogleTask} 
+                                />
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="3" className="py-12 text-center text-slate-400 italic">
+                                <td colSpan="4" className="py-12 text-center text-slate-400 italic">
                                     No tasks found. Start by adding one above!
                                 </td>
                             </tr>
                         )}
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </div>

@@ -7,17 +7,32 @@ export default function OneTask({ index, task, deleteTask, toogleTask }) {
       <td className="py-4 px-3 text-sm font-medium text-slate-400 w-12 text-center">
         {index + 1}
       </td>
+
       <td className="py-4 px-3">
         <span
           className={`text-base transition-all duration-300 ${
             task.completed 
               ? "line-through text-slate-400 decoration-slate-300" 
-              : "text-slate-700 font-normal"
+              : "text-slate-700 font-medium"
           }`}
         >
           {task.text}
         </span>
       </td>
+
+      <td className="py-4 px-3">
+        <div className="flex items-center justify-center">
+          <span className={`
+            px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border
+            ${task.priority === 'high' ? 'bg-rose-50 text-rose-600 border-rose-100' : 
+              task.priority === 'medium' ? 'bg-amber-50 text-amber-600 border-amber-100' : 
+              'bg-slate-50 text-slate-500 border-slate-100'}
+          `}>
+            {task.priority || 'low'}
+          </span>
+        </div>
+      </td>
+
       <td className="py-4 px-3 text-right">
         <div className="flex items-center justify-end gap-3">
           <ToogleTask isCompleted={task.completed} toogleTask={toogleTask} id={task.id} />
