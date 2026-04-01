@@ -1,10 +1,7 @@
 <div align="center">
-    <h1 className="text-2xl font-black tracking-tighter text-slate-900 flex items-center">
-        <span className="bg-clip-text text-transparent bg-linear-to-r from-indigo-600 to-violet-500">
-            H
-        </span>
-        <span className="ml-px">ermes</span>
-        <div className="ml-1 w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse"></div>
+    <h1 style="font-size: 3.5em; font-weight: 900; color: #0f172a; margin-bottom: 0; display: flex; align-items: center; justify-content: center; gap: 4px;">
+        <span style="color: #4f46e5;">H</span>ermes
+        <span style="color: #4f46e5; font-size: 0.3em; margin-top: 15px;">●</span>
     </h1>
     <p style="font-size: 1.2em; color: #64748b;"><strong>Productivity Dashboard</strong></p>
 </div>
