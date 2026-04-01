@@ -10,6 +10,7 @@ function App() {
     const [text, setText] = useState("");
     const [priority , setPriority] = useState("");
     const [filter , setFilter] = useState("All");
+    const [deadline , setDeadline] = useState("");
 
     function handleSubmitAdd(e) {
         e.preventDefault();
@@ -21,7 +22,7 @@ function App() {
             alert("Choisir une priorite");
             return
         }
-        addTodo(text , priority);
+        addTodo(text , priority , deadline);
         setText("");
     }
 
@@ -32,7 +33,7 @@ function App() {
             <main className="grow pt-32 pb-12 px-4 sm:px-6">
                 <div className="max-w-4xl mx-auto space-y-12">
                     <section className="flex justify-center animate-in fade-in slide-in-from-top-4 duration-500">
-                        <AddTaskForm addTask={handleSubmitAdd} text={text} setText={setText} setPriority={setPriority} priority={priority}/>
+                        <AddTaskForm addTask={handleSubmitAdd} text={text} setText={setText} setPriority={setPriority} priority={priority} setDeadline={setDeadline} deadline={deadline}/>
                     </section>
 
                     <section className="animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150">

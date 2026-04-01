@@ -1,6 +1,6 @@
 import AddTask from "../Button/AddTask";
 
-export default function AddTaskForm({ addTask, text, setText , setPriority , priority }) {
+export default function AddTaskForm({ addTask, text, setText , setPriority , priority, setDeadline , deadline }) {
     return (
         <form 
             onSubmit={addTask} 
@@ -36,6 +36,8 @@ export default function AddTaskForm({ addTask, text, setText , setPriority , pri
             <div className="relative flex items-center px-1 group/date">
                 <input 
                     type="date"
+                    value={deadline}
+                    onChange={(e) => setDeadline(e.target.value)}
                     className="appearance-none bg-slate-50/50 hover:bg-slate-100 pl-3 pr-8 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-500 cursor-pointer outline-none transition-all border border-transparent hover:border-slate-200 focus:bg-white"
                 />
                 <div className="absolute right-4 pointer-events-none text-slate-400 group-hover/date:text-indigo-500 transition-colors">

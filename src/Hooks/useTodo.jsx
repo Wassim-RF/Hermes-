@@ -10,11 +10,12 @@ export function useTodo() {
         localStorage.setItem("todos" , JSON.stringify(todos));
     } , [todos]);
 
-    function addTodo(text , priority) {
+    function addTodo(text , priority, deadline) {
         const newTodo = {
             id: Date.now(),
             text,
             priority,
+            deadline,
             completed: false,
         };
 
