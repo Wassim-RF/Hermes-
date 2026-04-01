@@ -8,6 +8,7 @@ import Footer from "./Components/Layouts/Footer";
 function App() {
     const [todos, addTodo, deleteTodo, toogleTodo] = useTodo();
     const [text, setText] = useState("");
+    const [priority , setPriority] = useState("");
     const [filter , setFilter] = useState("All");
 
     function handleSubmitAdd(e) {
