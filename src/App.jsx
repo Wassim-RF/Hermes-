@@ -17,7 +17,7 @@ function App() {
             alert("L'input est vide.");
             return
         }
-        addTodo(text);
+        addTodo(text , priority);
         setText("");
     }
 
@@ -28,7 +28,7 @@ function App() {
             <main className="grow pt-32 pb-12 px-4 sm:px-6">
                 <div className="max-w-4xl mx-auto space-y-12">
                     <section className="flex justify-center animate-in fade-in slide-in-from-top-4 duration-500">
-                        <AddTaskForm addTask={handleSubmitAdd} text={text} setText={setText} />
+                        <AddTaskForm addTask={handleSubmitAdd} text={text} setText={setText} setPriority={setPriority} priority={priority}/>
                     </section>
 
                     <section className="animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150">
