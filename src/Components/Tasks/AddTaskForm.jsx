@@ -33,6 +33,15 @@ export default function AddTaskForm({ addTask, text, setText , setPriority , pri
                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                 </div>
             </div>
+            <div className="relative flex items-center px-1 group/date">
+                <input 
+                    type="date"
+                    className="appearance-none bg-slate-50/50 hover:bg-slate-100 pl-3 pr-8 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-500 cursor-pointer outline-none transition-all border border-transparent hover:border-slate-200 focus:bg-white"
+                />
+                <div className="absolute right-4 pointer-events-none text-slate-400 group-hover/date:text-indigo-500 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+            </div>
 
             <div className="shrink-0 ml-1">
                 <AddTask />
