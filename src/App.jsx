@@ -28,24 +28,47 @@ function App() {
     }
 
     return (
-        <div className="min-h-screen bg-slate-50/50 flex flex-col">
+        <div className={`min-h-screen flex flex-col transition-colors duration-500 ${
+            mode === 'dark' ? "bg-slate-950 text-slate-200" : "bg-slate-50 text-slate-900"
+        }`}>
             <Header mode={mode} setMode={setMode}/>
 
             <main className="grow pt-32 pb-12 px-4 sm:px-6">
                 <div className="max-w-4xl mx-auto space-y-12">
+
                     <section className="flex justify-center animate-in fade-in slide-in-from-top-4 duration-500">
-                        <AddTaskForm addTask={handleSubmitAdd} text={text} setText={setText} setPriority={setPriority} priority={priority} setDeadline={setDeadline} deadline={deadline}/>
+                        <AddTaskForm 
+                            addTask={handleSubmitAdd} 
+                            text={text} 
+                            setText={setText} 
+                            setPriority={setPriority} 
+                            priority={priority} 
+                            setDeadline={setDeadline} 
+                            deadline={deadline} 
+                            mode={mode}
+                        />
                     </section>
 
                     <section className="animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150">
-                        <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-100">
-                            <TaskTable todos={todos} deleteTask={deleteTodo} toogleTask={toogleTodo} filter={filter} setFilter={setFilter} />
+                        <div className={`rounded-3xl shadow-2xl overflow-hidden border transition-all duration-500 ${
+                            mode === 'dark' 
+                            ? "bg-slate-900/50 border-slate-800 shadow-black/40" 
+                            : "bg-white border-slate-100 shadow-slate-200/50"
+                        }`}>
+                            <TaskTable 
+                                todos={todos} 
+                                deleteTask={deleteTodo} 
+                                toogleTask={toogleTodo} 
+                                filter={filter} 
+                                setFilter={setFilter} 
+                                mode={mode}
+                            />
                         </div>
                     </section>
                 </div>
             </main>
 
-            <Footer todos={todos} />
+            <Footer mode={mode} />
         </div>
     );
 }
