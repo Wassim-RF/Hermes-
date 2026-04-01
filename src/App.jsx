@@ -6,6 +6,7 @@ import Header from "./Components/Layouts/Header";
 import Footer from "./Components/Layouts/Footer";
 
 function App() {
+    const [mode , setMode] = useState("light");
     const [todos, addTodo, deleteTodo, toogleTodo] = useTodo();
     const [text, setText] = useState("");
     const [priority , setPriority] = useState("");
@@ -28,7 +29,7 @@ function App() {
 
     return (
         <div className="min-h-screen bg-slate-50/50 flex flex-col">
-            <Header />
+            <Header mode={mode} setMode={setMode}/>
 
             <main className="grow pt-32 pb-12 px-4 sm:px-6">
                 <div className="max-w-4xl mx-auto space-y-12">
