@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTodo } from "./Hooks/useTodo";
 import AddTaskForm from "./Components/Tasks/AddTaskForm";
 import TaskTable from "./Components/Tasks/TaskTable";
@@ -6,7 +6,14 @@ import Header from "./Components/Layouts/Header";
 import Footer from "./Components/Layouts/Footer";
 
 function App() {
-    const [mode , setMode] = useState("light");
+    const [mode , setMode] = useState(() => {
+        const storedMode = localStorage.getItem("mode");
+        return storedMode ? storedMode : "light"
+    });
+
+    useEffect(() => {
+        localStorage.setItem("mode" , mode);
+    } , [mode])
     const [todos, addTodo, deleteTodo, toogleTodo] = useTodo();
     const [text, setText] = useState("");
     const [priority , setPriority] = useState("");
